@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-
-
 class MyWindowAdapter extends WindowAdapter 
 {
 	public void windowClosing(WindowEvent e) 
@@ -17,11 +15,6 @@ class MyWindowAdapter extends WindowAdapter
 
 class AppDesk extends JFrame implements ActionListener 
 {
-	private String payload="";
-	private String carrier="";
-	private String object="";
-	private String decoded="";
-
 	public AppDesk() 
 	{
 		//Headng for the tool
@@ -72,7 +65,6 @@ class AppDesk extends JFrame implements ActionListener
 			m1.add(mi);
 			mi.addActionListener(this);
 		}
-
 	}
 
 	public void actionPerformed(ActionEvent e) 

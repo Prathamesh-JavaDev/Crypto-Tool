@@ -17,11 +17,6 @@ class MyWindowAdapter extends WindowAdapter
 
 class AppDesk extends JFrame implements ActionListener 
 {
-	private String payload="";
-	private String carrier="";
-	private String object="";
-	private String decoded="";
-
 	public AppDesk() 
 	{
 		//Headng for the tool
@@ -31,7 +26,6 @@ class AppDesk extends JFrame implements ActionListener
 		super.addWindowListener(wa);
 		super.setSize(600, 500);
 		super.setVisible(true);
-		super.setBackground(ORANGE);
 		super.setLayout(null);
 		
 		this.setFont(new Font("Calibri", Font.BOLD, 22));
@@ -73,7 +67,6 @@ class AppDesk extends JFrame implements ActionListener
 			m1.add(mi);
 			mi.addActionListener(this);
 		}
-
 	}
 
 	public void actionPerformed(ActionEvent e) 
