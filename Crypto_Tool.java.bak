@@ -31,6 +31,7 @@ class AppDesk extends JFrame implements ActionListener
 		super.addWindowListener(wa);
 		super.setSize(600, 500);
 		super.setVisible(true);
+		super.setBackground(ORANGE);
 		super.setLayout(null);
 		
 		this.setFont(new Font("Calibri", Font.BOLD, 22));
