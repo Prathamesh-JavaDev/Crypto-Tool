@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-
+import algo.Subs_Cypher;
 
 class MyWindowAdapter extends WindowAdapter 
 {
@@ -106,23 +106,26 @@ class AppDesk extends JFrame implements ActionListener
 			{
 				try
 				{
-					FileDialog fd = new FileDialog(this,"Select Payload File",FileDialog.LOAD);
+					FileDialog fd = new FileDialog(this,"Select File",FileDialog.LOAD);
 					fd.show();
 					if(fd.getFile()!=null)
 					{
-						//code to select the Payload Image
+						//code to select the File for Encryption
 						toEncrypt=fd.getDirectory()+fd.getFile();
 						setTitle(toEncrypt);
 						FileInputStream fin = new FileInputStream(toEncrypt);
 						byte data[]=new byte[fin.available()];
 						fin.read(data);
 					
-						int i = 0;
+						String str = new String(data);
 					
 						//code to get the key value
 						int key = Integer.parseInt(JOptionPane.showInputDialog("Enter the PassKey: "));
+						
+						byte bytes[] = (Subs_Cypher.encrypt(str,key)).toString().getBytes();
+						
 					
-						FileDialog fd1 = new FileDialog(this,"Select Carrier File",FileDialog.LOAD);
+						FileDialog fd1 = new FileDialog(this,"Create File",FileDialog.LOAD);
 						fd1.show();
 						if(fd.getFile()!=null)
 						{
@@ -130,7 +133,7 @@ class AppDesk extends JFrame implements ActionListener
 							Encrypted=fd1.getDirectory()+fd1.getFile();
 							FileOutputStream fout = new FileOutputStream(Encrypted);
 					
-							fout.write(data);
+							fout.write(bytes);
 					
 							//closing file
 							fout.close();
