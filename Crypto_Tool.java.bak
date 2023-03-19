@@ -120,7 +120,7 @@ class AppDesk extends JFrame implements ActionListener
 						String str = new String(data);
 					
 						//code to get the key value
-						int key = Integer.parseInt(JOptionPane.showInputDialog("Enter the Key: "));
+						int key = Integer.parseInt(JOptionPane.showInputDialog("Enter the PassKey: "));
 						
 						byte bytes[] = (CaesarCypher.encrypt(str,key)).toString().getBytes();
 						
