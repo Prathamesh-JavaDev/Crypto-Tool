@@ -102,14 +102,12 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 			ch.add(item[i]);
 	}
 	
-	//Method called for choices selected
 	public void itemStateChanged(ItemEvent e)
 	{
 		//code to get selected Algorithm name
 		clr = ch.getSelectedItem();
 	}
 
-	//Method called for Button selected
 	public void actionPerformed(ActionEvent e)
 	{
 		//Code to get Operation Command
