@@ -1,6 +1,6 @@
 package algo;
 
-public class Subs_Cypher
+public class ModifiedCaesarCypher
 {
 	public static StringBuffer encrypt(String text, int k)
 	{

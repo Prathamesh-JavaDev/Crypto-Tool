@@ -15,12 +15,16 @@ class MyWindowAdapter extends WindowAdapter
 	}
 }
 
-class AppDesk extends JFrame implements ActionListener 
+class AppDesk extends JFrame implements ActionListener,ItemListener
 {
 	public String toEncrypt="";
 	public String toDecrypt="";
 	public String Encrypted="";
 	public String Decrypted="";
+	
+	
+	
+	public Choice ch ;
 	
 	public AppDesk() 
 	{
@@ -53,10 +57,11 @@ class AppDesk extends JFrame implements ActionListener
 		this.add(ta);
 		
 		//code to create a listing space
-		Choice ch = new Choice();
+		ch = new Choice();
 		ch.setBounds(230,80,200,80);
 		ch.setFont(new Font("Arial", Font.BOLD, 16));
 		this.add(ch);
+		ch.addItemListener(this);
 
 		//Button for Encryption Option
 		Button b1 = new Button("Encrypt");
@@ -90,10 +95,29 @@ class AppDesk extends JFrame implements ActionListener
 			mi.addActionListener(this);
 		}
 		
-		//code to add algorithm names into the choices
-		String[] item = {"Ceaser Cypher","Modified Ceaser Cypher"};
+		//code to find algorithm names from the algo folder into a single File Object
+		File a = new File("C:/Users/DELL/Desktop/Java Programs/Crypto-Tool/algo/");
+		
+		//code to add algorithm names into the choice folder
+		String item[] = a.list() ;
+		
+		//code to remove .class and .java extension from the algorithm names
 		for(int i=0;i<item.length;i++)
-			ch.addItem(item[i]);
+		{
+			item[i]=item[i].replace(".java","");
+			item[i]=item[i].replace(".class","");
+		}
+		
+		//code to add only distinct algorithm names into the choices.
+		item = Arrays.stream(item).distinct().toArray(String[]::new);
+		for(int i=0;i<item.length;i++)
+			ch.add(item[i]);
+	}
+	
+	public void itemStateChanged(ItemEvent e)
+	{
+		//code to get selected Algorithm name
+		String clr = ch.getSelectedItem();
 	}
 
 	public void actionPerformed(ActionEvent e)
@@ -120,9 +144,9 @@ class AppDesk extends JFrame implements ActionListener
 						String str = new String(data);
 					
 						//code to get the key value
-						int key = Integer.parseInt(JOptionPane.showInputDialog("Enter the PassKey: "));
+						int key = Integer.parseInt(JOptionPane.showInputDialog("Enter the Key: "));
 						
-						byte bytes[] = (CaesarCypher.encrypt(str,key)).toString().getBytes();
+						byte bytes[] = CaesarCypher.encrypt(str,key).toString().getBytes();
 						
 					
 						FileDialog fd1 = new FileDialog(this,"Create File",FileDialog.LOAD);
