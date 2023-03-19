@@ -41,8 +41,6 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 		super.setVisible(true);
 		super.setLayout(null);
 		
-		
-		
 		//Label for choosing the Encryption Algorithm
 		Label lbl = new Label("Choose Algorithm :");
 		lbl.setBounds(30,50,200,80);
