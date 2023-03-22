@@ -62,6 +62,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 		ch = new Choice();
 		ch.setBounds(230,80,200,80);
 		ch.setFont(new Font("Arial", Font.BOLD, 16));
+		ch.add("Select Algorithm");
 		this.add(ch);
 		ch.addItemListener(this);
 
@@ -133,12 +134,21 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 						String str = new String(data);
 						
 						byte bytes[] = new byte[data.length];
-					
-					
-						//code to get the key value
-						//key = Integer.parseInt(JOptionPane.showInputDialog("Enter the Key: "));
+						
+						switch(clr)
+						{
+							case "CaesarCypher":{
+								bytes = CaesarCypher.encrypt(str,key).toString().getBytes();
+							}break;
 							
-						bytes = CaesarCypher.encrypt(str,key).toString().getBytes();
+							case "ModifiedCaesarCypher":{
+								bytes = ModifiedCaesarCypher.encrypt(str).toString().getBytes();
+							}break;
+							
+							case "VigenereCypher":{
+								bytes = VigenereCypher.encrypt(str).getBytes();
+							}break;
+						}
 							
 						FileDialog fd1 = new FileDialog(this,"Create File",FileDialog.LOAD);
 						fd1.setVisible(true);
@@ -185,10 +195,21 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 						byte bytes[] = new byte[data.length];
 					
 					
-						//code to get the key value
-						//key = Integer.parseInt(JOptionPane.showInputDialog("Enter the Key: "));
+						
+						switch(clr)
+						{
+							case "CaesarCypher":{
+								bytes = CaesarCypher.decrypt(str,key).toString().getBytes();
+							}break;
 							
-						bytes = CaesarCypher.decrypt(str,key).toString().getBytes();
+							case "ModifiedCaesarCypher":{
+								bytes = ModifiedCaesarCypher.decrypt(str).toString().getBytes();
+							}break;
+							
+							case "VigenereCypher":{
+								bytes = VigenereCypher.decrypt(str).getBytes();
+							}break;
+						}
 							
 						FileDialog fd1 = new FileDialog(this,"Create File",FileDialog.LOAD);
 						fd1.setVisible(true);
