@@ -27,6 +27,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 	clr defined for choice selected
 	key defined for key value input*/
 	public Choice ch ;
+	public TextArea ta;
 	public String clr ;
 	public int key;
 	
@@ -54,8 +55,9 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 		this.add(ld);
 		
 		//TextArea for description
-		TextArea ta = new TextArea();
+		ta = new TextArea();
 		ta.setBounds(450,80,600,400);
+		ta.setFont(new Font("Arial", Font.BOLD, 16));
 		this.add(ta);
 		
 		//code to create a listing space
@@ -83,7 +85,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 		b2.addActionListener(this);
 		
 		//code to find algorithm names from the algo folder into a single File Object
-		File a = new File("C:/Users/DELL/Desktop/Java Programs/Crypto-Tool/algo/");
+		File a = new File("E:/Github_Java/Crypto-Tool/algo");
 		
 		//code to add algorithm names into the choice folder
 		String item[] = a.list() ;
@@ -93,6 +95,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 		{
 			item[i]=item[i].replace(".java","");
 			item[i]=item[i].replace(".class","");
+			item[i]=item[i].replace(".txt","");
 		}
 		
 		//code to add only distinct algorithm names into the choices.
@@ -106,6 +109,48 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 	{
 		//code to get selected Algorithm name
 		clr = ch.getSelectedItem();
+		
+		byte desc[];
+		try{
+		switch(clr)
+		{
+			case "CaesarCypher":{
+				FileInputStream cc = new FileInputStream("E:/Github_Java/Crypto-Tool/algo/CaesarCypher.txt");
+				desc=new byte[cc.available()];
+				cc.read(desc);
+				//code to create the byte array into a single String.
+				String str = new String(desc);
+				ta.setText(str);
+				ta.setEditable(false);
+			}break;
+							
+			case "ModifiedCaesarCypher":{
+				FileInputStream mcc = new FileInputStream("E:/Github_Java/Crypto-Tool/algo/ModifiedCaesarCypher.txt");						desc=new byte[mcc.available()];
+				mcc.read(desc);
+				//code to create the byte array into a single String.
+				String str = new String(desc);
+				ta.setText(str);
+				ta.setEditable(false);
+			}break;
+							
+			case "VigenereCypher":{
+				FileInputStream vc = new FileInputStream("E:/Github_Java/Crypto-Tool/algo/VigenereCypher.txt");							desc=new byte[vc.available()];
+				vc.read(desc);
+				//code to create the byte array into a single String.
+				String str = new String(desc);
+				ta.setText(str);
+				ta.setEditable(false);
+			}break;
+
+			default :{
+				ta.setText("Select an Algorithm.");
+			}
+		}
+		}
+		catch(Exception ex)
+				{
+					ex.printStackTrace();
+				}
 	}
 
 	//Method called for Button selected
