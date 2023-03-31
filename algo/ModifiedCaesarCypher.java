@@ -13,15 +13,28 @@ public class ModifiedCaesarCypher
 		StringBuffer result= new StringBuffer();
         for (int i=0;i<text.length();i++)
 		{
+			char ch = ' ';
 			if(Character.isUpperCase(text.charAt(i)))
 			{
-				char ch = (char)(((int)text.charAt(i)+key-65)%26+65);
+				/*if condition to skip spaces between alphabest*/
+				if(text.charAt(i)==' '){
+					result.append(ch);
+				}
+				else{
+				ch = (char)(((int)text.charAt(i)+key-65)%26+65);
 				result.append(ch);
+				}
 			}
 			else
 			{
-				char ch = (char)(((int)text.charAt(i)+key-97)%26+97);
+				/*if condition to skip spaces between alphabest*/
+				if(text.charAt(i)==' '){
+					result.append(ch);
+				}
+				else{
+				ch = (char)(((int)text.charAt(i)+key-97)%26+97);
 				result.append(ch);
+				}
 			}
 		}
 		return result;
@@ -35,15 +48,28 @@ public class ModifiedCaesarCypher
 		StringBuffer result= new StringBuffer();
         for (int i=0;i<text.length();i++)
 		{
+			char ch = ' ';
 			if(Character.isUpperCase(text.charAt(i)))
 			{
-				char ch = (char)(((int)text.charAt(i)-key-65)%26+65);
+				/*if condition to skip spaces between alphabest*/
+				if(text.charAt(i)==' '){
+					result.append(ch);
+				}
+				else{
+				ch = (char)(((int)text.charAt(i)+key-65)%26+65);
 				result.append(ch);
+				}
 			}
 			else
 			{
-				char ch = (char)(((int)text.charAt(i)-key-97)%26+97);
+				/*if condition to skip spaces between alphabest*/
+				if(text.charAt(i)==' '){
+					result.append(ch);
+				}
+				else{
+				ch = (char)(((int)text.charAt(i)+key-97)%26+97);
 				result.append(ch);
+				}
 			}
 		}
 		return result;

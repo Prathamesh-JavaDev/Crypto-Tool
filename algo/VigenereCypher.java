@@ -15,6 +15,11 @@ public class VigenereCypher
 
 		for (int i = 0; i < Str.length(); i++)
 		{
+			/*if condition to skip spaces between alphabest*/
+			if(Str.charAt(i)==' '){
+				cipher_text+=(char)Str.charAt(i);
+			}
+			else{
 			// converting in range 0-25
 			int x = (Str.charAt(i) + Key.charAt(i)) %26;
 
@@ -22,6 +27,7 @@ public class VigenereCypher
 			x += 'A';
 
 			cipher_text+=(char)(x);
+			}
 		}
 		return cipher_text;
 	}
@@ -37,11 +43,17 @@ public class VigenereCypher
 
 		for (int i = 0 ; i < cipher_text.length() && i < Key.length(); i++)
 		{
+			/*if condition to skip spaces between alphabest*/
+			if(Str.charAt(i)==' '){
+				orig_text+=(char)Str.charAt(i);
+			}
+			else{
 			// converting in range 0-25
 			int x = (cipher_text.charAt(i) - Key.charAt(i) + 26) %26;
 			// convert into alphabets(ASCII)
 			x += 'A';
 			orig_text+=(char)(x);
+			}
 		}
 		return orig_text;
 	}

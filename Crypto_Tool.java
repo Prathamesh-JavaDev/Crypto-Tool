@@ -85,7 +85,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 		b2.addActionListener(this);
 		
 		//code to find algorithm names from the algo folder into a single File Object
-		File a = new File("E:/Github_Java/Crypto-Tool/algo");
+		File a = new File("C:/Users/DELL/Desktop/Java Programs/Crypto-Tool/algo");
 		
 		//code to add algorithm names into the choice folder
 		String item[] = a.list() ;
@@ -115,7 +115,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 		switch(clr)
 		{
 			case "CaesarCypher":{
-				FileInputStream cc = new FileInputStream("E:/Github_Java/Crypto-Tool/algo/CaesarCypher.txt");
+				FileInputStream cc = new FileInputStream("C:/Users/DELL/Desktop/Java Programs/Crypto-Tool/algo/CaesarCypher.txt");
 				desc=new byte[cc.available()];
 				cc.read(desc);
 				//code to create the byte array into a single String.
@@ -125,7 +125,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 			}break;
 							
 			case "ModifiedCaesarCypher":{
-				FileInputStream mcc = new FileInputStream("E:/Github_Java/Crypto-Tool/algo/ModifiedCaesarCypher.txt");						desc=new byte[mcc.available()];
+				FileInputStream mcc = new FileInputStream("C:/Users/DELL/Desktop/Java Programs/Crypto-Tool/algo/ModifiedCaesarCypher.txt");						desc=new byte[mcc.available()];
 				mcc.read(desc);
 				//code to create the byte array into a single String.
 				String str = new String(desc);
@@ -134,7 +134,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 			}break;
 							
 			case "VigenereCypher":{
-				FileInputStream vc = new FileInputStream("E:/Github_Java/Crypto-Tool/algo/VigenereCypher.txt");							desc=new byte[vc.available()];
+				FileInputStream vc = new FileInputStream("C:/Users/DELL/Desktop/Java Programs/Crypto-Tool/algo/VigenereCypher.txt");							desc=new byte[vc.available()];
 				vc.read(desc);
 				//code to create the byte array into a single String.
 				String str = new String(desc);
