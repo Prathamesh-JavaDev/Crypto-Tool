@@ -2,10 +2,8 @@ package algo;
 
 import javax.swing.JOptionPane;
 
-public class VigenereCypher
-{
-	public static String encrypt(String str)
-	{
+public class VigenereCypher{
+	public static String encrypt(String str){
 		String Str = str.toUpperCase();
 		String keyword = JOptionPane.showInputDialog("Enter the Key:(ALPHABETS ONLY) ");
 		String Key = generateKey(Str, keyword);
@@ -13,8 +11,7 @@ public class VigenereCypher
 		//String cipher_text = cipherText(Str, Key);
 		String cipher_text="";
 
-		for (int i = 0; i < Str.length(); i++)
-		{
+		for (int i = 0; i < Str.length(); i++){
 			/*if condition to skip spaces between alphabest*/
 			if(Str.charAt(i)==' '){
 				cipher_text+=(char)Str.charAt(i);
@@ -32,8 +29,7 @@ public class VigenereCypher
 		return cipher_text;
 	}
 	
-	public static String decrypt(String cipher_text)
-	{
+	public static String decrypt(String cipher_text){
 		String Str =cipher_text.toUpperCase();
 		String keyword = JOptionPane.showInputDialog("Enter the Key:(ALPHABETS ONLY) ");
 		String Key = generateKey(Str, keyword);
@@ -41,8 +37,7 @@ public class VigenereCypher
 		//String cipher_text = cipherText(Str, Key);
 		String orig_text="";
 
-		for (int i = 0 ; i < cipher_text.length() && i < Key.length(); i++)
-		{
+		for (int i = 0 ; i < cipher_text.length() && i < Key.length(); i++){
 			/*if condition to skip spaces between alphabest*/
 			if(Str.charAt(i)==' '){
 				orig_text+=(char)Str.charAt(i);
@@ -58,11 +53,9 @@ public class VigenereCypher
 		return orig_text;
 	}
 	
-	public static String generateKey(String str, String key)
-	{
+	public static String generateKey(String str, String key){
 		int x = str.length();
-		for (int i = 0; i<=x; i++)
-		{
+		for (int i = 0; i<=x; i++){
 			if (x == i)
 				i = 0;
 			if (key.length() == str.length())

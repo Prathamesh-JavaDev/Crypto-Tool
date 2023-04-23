@@ -3,20 +3,17 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-
+//calling user built package algo
 import algo.*;
 
-class MyWindowAdapter extends WindowAdapter 
-{
-	public void windowClosing(WindowEvent e) 
-	{
+class MyWindowAdapter extends WindowAdapter{
+	public void windowClosing(WindowEvent e){
 		Window w = e.getWindow();
 		w.dispose();
 	}
 }
 
-class AppDesk extends JFrame implements ActionListener,ItemListener
-{
+class AppDesk extends JFrame implements ActionListener,ItemListener{
 	//String initialized for File i/o
 	public String toEncrypt="";
 	public String toDecrypt="";
@@ -31,8 +28,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 	public String clr ;
 	public int key;
 	
-	public AppDesk() 
-	{
+	public AppDesk() {
 		//Headng for the tool
 		super("Cryptography Tool");
 
@@ -91,8 +87,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 		String item[] = a.list() ;
 		
 		//code to remove .class and .java extension from the algorithm names
-		for(int i=0;i<item.length;i++)
-		{
+		for(int i=0;i<item.length;i++){
 			item[i]=item[i].replace(".java","");
 			item[i]=item[i].replace(".class","");
 			item[i]=item[i].replace(".txt","");
@@ -105,15 +100,13 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 	}
 	
 	//Method called for choices selected
-	public void itemStateChanged(ItemEvent e)
-	{
+	public void itemStateChanged(ItemEvent e){
 		//code to get selected Algorithm name
 		clr = ch.getSelectedItem();
 		
 		byte desc[];
 		try{
-		switch(clr)
-		{
+		switch(clr){
 			case "CaesarCypher":{
 				FileInputStream cc = new FileInputStream("C:/Users/DELL/Desktop/Java Programs/Crypto-Tool/algo/CaesarCypher.txt");
 				desc=new byte[cc.available()];
@@ -147,27 +140,22 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 			}
 		}
 		}
-		catch(Exception ex)
-				{
-					ex.printStackTrace();
-				}
+		catch(Exception ex){
+				ex.printStackTrace();
+			}
 	}
 
 	//Method called for Button selected
-	public void actionPerformed(ActionEvent e)
-	{
+	public void actionPerformed(ActionEvent e){
 		//Code to get Operation Command
 		String cap = e.getActionCommand();
 			
 			//code to call Encryption Process
-			if(cap.equals("Encrypt"))
-			{
-				try
-				{
+			if(cap.equals("Encrypt")){
+				try{
 					FileDialog fd = new FileDialog(this,"Select File",FileDialog.LOAD);
 					fd.setVisible(true);
-					if(fd.getFile()!=null)
-					{
+					if(fd.getFile()!=null){
 						//code to select the File for Encryption
 						toEncrypt=fd.getDirectory()+fd.getFile();
 						setTitle(toEncrypt);
@@ -180,8 +168,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 						
 						byte bytes[] = new byte[data.length];
 						
-						switch(clr)
-						{
+						switch(clr){
 							case "CaesarCypher":{
 								bytes = CaesarCypher.encrypt(str,key).toString().getBytes();
 							}break;
@@ -197,8 +184,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 							
 						FileDialog fd1 = new FileDialog(this,"Create File",FileDialog.LOAD);
 						fd1.setVisible(true);
-						if(fd.getFile()!=null)
-						{
+						if(fd.getFile()!=null){
 							//code to select carrier Image and hide The payload in it
 							Encrypted=fd1.getDirectory()+fd1.getFile();
 							FileOutputStream fout = new FileOutputStream(Encrypted);
@@ -211,22 +197,18 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 						fin.close();
 					}
 				}
-				catch(Exception ex)
-				{
+				catch(Exception ex){
 					ex.printStackTrace();
 				}
 			}
 			
 			
 			//code to call Decryption Process
-			if(cap.equals("Decrypt"))
-			{
-				try
-				{
+			if(cap.equals("Decrypt")){
+				try{
 					FileDialog fd = new FileDialog(this,"Select File",FileDialog.LOAD);
 					fd.setVisible(true);
-					if(fd.getFile()!=null)
-					{
+					if(fd.getFile()!=null){
 						//code to select the File for Decryption
 						toDecrypt=fd.getDirectory()+fd.getFile();
 						setTitle(toDecrypt);
@@ -238,11 +220,8 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 						String str = new String(data);
 						
 						byte bytes[] = new byte[data.length];
-					
-					
 						
-						switch(clr)
-						{
+						switch(clr){
 							case "CaesarCypher":{
 								bytes = CaesarCypher.decrypt(str,key).toString().getBytes();
 							}break;
@@ -258,8 +237,7 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 							
 						FileDialog fd1 = new FileDialog(this,"Create File",FileDialog.LOAD);
 						fd1.setVisible(true);
-						if(fd.getFile()!=null)
-						{
+						if(fd.getFile()!=null){
 							//code to get the File for storing Decrypted data.
 							Decrypted=fd1.getDirectory()+fd1.getFile();
 							FileOutputStream fout = new FileOutputStream(Decrypted);
@@ -272,18 +250,15 @@ class AppDesk extends JFrame implements ActionListener,ItemListener
 						fin.close();
 					}
 				}
-				catch(Exception ex)
-				{
+				catch(Exception ex){
 					ex.printStackTrace();
 				}
 			}
 	}
 }
 
-class Crypto_Tool 
-{
-	public static void main(String[] args) throws IOException
-	{
+class Crypto_Tool {
+	public static void main(String[] args) throws IOException{
 		//Initializing the Constructor for starting the Tool.
 		AppDesk a = new AppDesk();
 	}

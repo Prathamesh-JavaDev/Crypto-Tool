@@ -1,16 +1,12 @@
 package algo;
 
-public class CaesarCypher
-{
-	public static StringBuffer encrypt(String text, int k)
-	{
+public class CaesarCypher{
+	public static StringBuffer encrypt(String text, int k){
 		int key = 5;
 		StringBuffer result= new StringBuffer();
-        for (int i=0;i<text.length();i++)
-		{
+        for (int i=0;i<text.length();i++){
 			char ch = ' ';
-			if(Character.isUpperCase(text.charAt(i)))
-			{
+			if(Character.isUpperCase(text.charAt(i))){
 				/*if condition to skip spaces between alphabest*/
 				if(text.charAt(i)==' '){
 					result.append(ch);
@@ -20,8 +16,7 @@ public class CaesarCypher
 				result.append(ch);
 				}
 			}
-			else
-			{
+			else{
 				/*if condition to skip spaces between alphabest*/
 				if(text.charAt(i)==' '){
 					result.append(ch);
@@ -35,15 +30,12 @@ public class CaesarCypher
 		return result;
 	}
 	
-	public static StringBuffer decrypt(String text,int k)
-	{
+	public static StringBuffer decrypt(String text,int k){
 		int key = 5;
 		StringBuffer result= new StringBuffer();
-        for (int i=0;i<text.length();i++)
-		{
+        for (int i=0;i<text.length();i++){
 			char ch =' ';
-			if(Character.isUpperCase(text.charAt(i)))
-			{
+			if(Character.isUpperCase(text.charAt(i))){
 				/*if condition to skip spaces between alphabest*/
 				if(text.charAt(i)==' '){
 					result.append(ch);
@@ -53,8 +45,7 @@ public class CaesarCypher
 				result.append(ch);
 				}
 			}
-			else
-			{
+			else{
 				/*if condition to skip spaces between alphabest*/
 				if(text.charAt(i)==' '){
 					result.append(ch);

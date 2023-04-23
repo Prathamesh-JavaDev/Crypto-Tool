@@ -2,20 +2,16 @@ package algo;
 
 import javax.swing.JOptionPane;
 
-public class ModifiedCaesarCypher
-{
-	public static StringBuffer encrypt(String text)
-	{
+public class ModifiedCaesarCypher{
+	public static StringBuffer encrypt(String text){
 		
 		//code to get the key value
 		int key = Integer.parseInt(JOptionPane.showInputDialog("Enter the Key: "));
 		
 		StringBuffer result= new StringBuffer();
-        for (int i=0;i<text.length();i++)
-		{
+        for (int i=0;i<text.length();i++){
 			char ch = ' ';
-			if(Character.isUpperCase(text.charAt(i)))
-			{
+			if(Character.isUpperCase(text.charAt(i))){
 				/*if condition to skip spaces between alphabest*/
 				if(text.charAt(i)==' '){
 					result.append(ch);
@@ -25,8 +21,7 @@ public class ModifiedCaesarCypher
 				result.append(ch);
 				}
 			}
-			else
-			{
+			else{
 				/*if condition to skip spaces between alphabest*/
 				if(text.charAt(i)==' '){
 					result.append(ch);
@@ -40,17 +35,14 @@ public class ModifiedCaesarCypher
 		return result;
 	}
 	
-	public static StringBuffer decrypt(String text)
-	{
+	public static StringBuffer decrypt(String text){
 		//code to get the key value
 		int key = Integer.parseInt(JOptionPane.showInputDialog("Enter the Key: "));
 		
 		StringBuffer result= new StringBuffer();
-        for (int i=0;i<text.length();i++)
-		{
+        for (int i=0;i<text.length();i++){
 			char ch = ' ';
-			if(Character.isUpperCase(text.charAt(i)))
-			{
+			if(Character.isUpperCase(text.charAt(i))){
 				/*if condition to skip spaces between alphabest*/
 				if(text.charAt(i)==' '){
 					result.append(ch);
@@ -60,8 +52,7 @@ public class ModifiedCaesarCypher
 				result.append(ch);
 				}
 			}
-			else
-			{
+			else{
 				/*if condition to skip spaces between alphabest*/
 				if(text.charAt(i)==' '){
 					result.append(ch);
