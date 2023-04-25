@@ -6,25 +6,19 @@ public class CaesarCypher{
 		StringBuffer result= new StringBuffer();
         for (int i=0;i<text.length();i++){
 			char ch = ' ';
+			boolean b = true;
+			/*if condition to skip numbers between alphabest*/
+			if(b!=(text.charAt(i)>='a' && text.charAt(i)<='z')){
+				ch=text.charAt(i);
+				result.append(ch);
+			}
 			if(Character.isUpperCase(text.charAt(i))){
-				/*if condition to skip spaces between alphabest*/
-				if(text.charAt(i)==' '){
-					result.append(ch);
-				}
-				else{
 				ch = (char)(((int)text.charAt(i)+key-65)%26+65);
 				result.append(ch);
-				}
 			}
-			else{
-				/*if condition to skip spaces between alphabest*/
-				if(text.charAt(i)==' '){
-					result.append(ch);
-				}
-				else{
+			if(Character.isLowerCase(text.charAt(i))){
 				ch = (char)(((int)text.charAt(i)+key-97)%26+97);
 				result.append(ch);
-				}
 			}
 		}
 		return result;
@@ -34,26 +28,20 @@ public class CaesarCypher{
 		int key = 5;
 		StringBuffer result= new StringBuffer();
         for (int i=0;i<text.length();i++){
-			char ch =' ';
+			char ch = ' ';
+			boolean b = true;
+			/*if condition to skip numbers between alphabest*/
+			if(b!=(text.charAt(i)>='a' && text.charAt(i)<='z')){
+				ch=text.charAt(i);
+				result.append(ch);
+			}
 			if(Character.isUpperCase(text.charAt(i))){
-				/*if condition to skip spaces between alphabest*/
-				if(text.charAt(i)==' '){
-					result.append(ch);
-				}
-				else{
 				ch = (char)(((int)text.charAt(i)-key-65)%26+65);
 				result.append(ch);
-				}
 			}
-			else{
-				/*if condition to skip spaces between alphabest*/
-				if(text.charAt(i)==' '){
-					result.append(ch);
-				}
-				else{
+			if(Character.isLowerCase(text.charAt(i))){
 				ch = (char)(((int)text.charAt(i)-key-97)%26+97);
 				result.append(ch);
-				}
 			}
 		}
 		return result;
