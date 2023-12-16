@@ -7,8 +7,8 @@ public class CaesarCypher{
         for (int i=0;i<text.length();i++){
 			char ch = ' ';
 			boolean b = true;
-			/*if condition to skip numbers between alphabest*/
-			if(b!=(text.charAt(i)>='a' && text.charAt(i)<='z')){
+			/*if condition to skip anything (Either Numbers or Symbols) other than alphabest*/
+			if(b!=(text.charAt(i)>='a' && text.charAt(i)<='z') && b!=(text.charAt(i)>='A' && text.charAt(i)<='Z')){
 				ch=text.charAt(i);
 				result.append(ch);
 			}
@@ -30,8 +30,8 @@ public class CaesarCypher{
         for (int i=0;i<text.length();i++){
 			char ch = ' ';
 			boolean b = true;
-			/*if condition to skip numbers between alphabest*/
-			if(b!=(text.charAt(i)>='a' && text.charAt(i)<='z')){
+			/*if condition to skip anything (Either Numbers or Symbols) other than alphabest*/
+			if(b!=(text.charAt(i)>='a' && text.charAt(i)<='z') && b!=(text.charAt(i)>='A' && text.charAt(i)<='Z')){
 				ch=text.charAt(i);
 				result.append(ch);
 			}
