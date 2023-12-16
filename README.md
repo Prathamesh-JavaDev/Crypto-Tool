@@ -1,10 +1,11 @@
 # Crypto-Tool
 A Cryptography Tool
 
-This is an Application tool for implementing user-specified Cryptography algorithms. \n
+<<<<<<< HEAD
+This is an Application tool for implementing user-specified Cryptography algorithms.
 The user can perform encryption and decryption on only text files with the Algorithm modules given.
 
 ALGORITHM MODULES INCLUDED:
-\n1.Caesar Cypher 
-\n2.Modified Ceasar Cypher
-\n3.Vigenere Cypher
+1.Caesar Cypher 
+2.Modified Ceasar Cypher
+3.Vigenere Cypher 
