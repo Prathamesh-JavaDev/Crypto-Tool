@@ -121,9 +121,8 @@ class AppDesk extends JFrame implements ActionListener, ItemListener {
 					break;
 
 				case "ModifiedCaesarCypher": {
-					FileInputStream mcc = new FileInputStream(
-							"C:/Crypto-Tool/algo/ModifiedCaesarCypher.txt");						desc=new
-					mcc. a vailable()];
+					FileInputStream mcc = new FileInputStream("C:/Crypto-Tool/algo/ModifiedCaesarCypher.txt");
+					desc = new byte[mcc.available()];
 					mcc.read(desc);
 					// code to create the byte array into a single String.
 					String str = new String(desc);
@@ -133,8 +132,8 @@ class AppDesk extends JFrame implements ActionListener, ItemListener {
 					break;
 
 				case "VigenereCypher": {
-					FileInputStream vc = new FileInputStream("C:/Crypto-Tool/algo/VigenereCypher.txt");							desc=ne
-					vc.a v ailable()];
+					FileInputStream vc = new FileInputStream("C:/Crypto-Tool/algo/VigenereCypher.txt");
+					desc = new byte[vc.available()];
 					vc.read(desc);
 					// code to create the byte array into a single String.
 					String str = new String(desc);
