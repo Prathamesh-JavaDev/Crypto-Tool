@@ -80,7 +80,6 @@ class AppDesk extends JFrame implements ActionListener, ItemListener {
 		for (int i = 0; i < item.length; i++) {
 			item[i] = item[i].replace(".java", "");
 			item[i] = item[i].replace(".class", "");
-			item[i] = item[i].replace(".txt", "");
 		}
 
 		// code to add only distinct algorithm names into the choices.
