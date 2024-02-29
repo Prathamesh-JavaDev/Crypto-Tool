@@ -36,27 +36,15 @@ class AppDesk extends JFrame implements ActionListener, ItemListener {
 
 		MyWindowAdapter wa = new MyWindowAdapter();
 		super.addWindowListener(wa);
-		super.setSize(1080, 550);
+		super.setSize(550, 350);
 		super.setVisible(true);
 		super.setLayout(null);
 
 		// Label for choosing the Encryption Algorithm
-		Label lbl = new Label("Choose Algorithm :");
+		Label lbl = new Label("Select Algorithm :");
 		lbl.setBounds(30, 50, 200, 80);
 		lbl.setFont(new Font("Georgia", Font.BOLD, 20));
 		this.add(lbl);
-
-		// Label for displaying Algorithm Description
-		Label ld = new Label("Algorithm Description :");
-		ld.setBounds(450, 0, 230, 80);
-		ld.setFont(new Font("Georgia", Font.BOLD, 20));
-		this.add(ld);
-
-		// TextArea for description
-		ta = new TextArea();
-		ta.setBounds(450, 80, 600, 400);
-		ta.setFont(new Font("Arial", Font.BOLD, 16));
-		this.add(ta);
 
 		// code to create a listing space
 		ch = new Choice();
@@ -105,50 +93,6 @@ class AppDesk extends JFrame implements ActionListener, ItemListener {
 	public void itemStateChanged(ItemEvent e) {
 		// code to get selected Algorithm name
 		clr = ch.getSelectedItem();
-
-		byte desc[];
-		try {
-			switch (clr) {
-				case "CaesarCypher": {
-					FileInputStream cc = new FileInputStream("C:/Crypto-Tool/algo/CaesarCypher.txt");
-					desc = new byte[cc.available()];
-					cc.read(desc);
-					// code to create the byte array into a single String.
-					String str = new String(desc);
-					ta.setText(str);
-					ta.setEditable(false);
-				}
-					break;
-
-				case "ModifiedCaesarCypher": {
-					FileInputStream mcc = new FileInputStream("C:/Crypto-Tool/algo/ModifiedCaesarCypher.txt");
-					desc = new byte[mcc.available()];
-					mcc.read(desc);
-					// code to create the byte array into a single String.
-					String str = new String(desc);
-					ta.setText(str);
-					ta.setEditable(false);
-				}
-					break;
-
-				case "VigenereCypher": {
-					FileInputStream vc = new FileInputStream("C:/Crypto-Tool/algo/VigenereCypher.txt");
-					desc = new byte[vc.available()];
-					vc.read(desc);
-					// code to create the byte array into a single String.
-					String str = new String(desc);
-					ta.setText(str);
-					ta.setEditable(false);
-				}
-					break;
-
-				default: {
-					ta.setText("Select an Algorithm.");
-				}
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 
 	// Method called for Button selected
