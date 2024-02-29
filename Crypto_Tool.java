@@ -26,7 +26,6 @@ class AppDesk extends JFrame implements ActionListener, ItemListener {
 	 * key defined for key value input
 	 */
 	public Choice ch;
-	public TextArea ta;
 	public String clr;
 	public int key;
 
